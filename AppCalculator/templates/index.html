@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<title>Calculator</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2>Calculate the cost of your own app!</h2>
+      <h5>Choose features that it must contain:</h5>
+      {# Форма с селектором #}
+      <div id="form">
+        <select id="selector" class="custom-select" multiple>
+          {% if parts %}
+          {% for part in parts %}
+          <option id="option" class="option" onclick="selected" value="{{ part.fee }}">{{ part }}</option>
+          {% endfor %}
+          {% else %}
+          <h1>Error</h1>
+          {% endif %}
+          </select>
+<script>
+$("#selector").change(whatFee);
+function whatFee() {
+  var fee = 0;
+  $('#selector option:selected').each(function () {
+    fee += parseInt($(this).val());
+    var beforeFee = "This app will cost - $" + fee;
+    document.getElementById('output').innerHTML = String(beforeFee);
+    });
+    }
+</script>
+</div>
+<p><h5><div id="output"></div></h5>
+  </div>
+  </div>
+<!-- Форма обратной связи -->
+<div id="contactForm">
+  <form action="email.html" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="cIHJ6grVD8YRrIHefbG8y3j6MIqj4FleOh1b8YKsj3Q9MlSlXKKFDwfgqNYmduA6">
+    <label  for="id_emailto">Your Email:</label><br><input type="email" name="emailto" required="" id="id_emailto">
+    <br><label style="margin-top:.5rem;" for="id_subjectt">Subject:</label><br><input type="text" name="subjectt" required="" id="id_subjectt">
+    <br><label style="margin-top:.5rem;" for="id_message">Message:</label><br><textarea name="message" cols="40" rows="10" required="" id="id_message"></textarea>
+    <div class="form-actions">
+      <button style="margin-top:.5rem;" id="post" type="submit">Send</button>
+      </div>
+      </form>
+      </div>
+      </div>
+    </body>
+    </html>

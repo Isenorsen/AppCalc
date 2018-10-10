@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#<div id="contactForm">#}
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+{#    <form method="post">#}
+{#        {{ form }}#}
+{#    <div class="form-actions">#}
+{#        <button id="post" type="submit">Send</button>#}
+{#    </div>#}
+        <div id="contactForm">
+<form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="cIHJ6grVD8YRrIHefbG8y3j6MIqj4FleOh1b8YKsj3Q9MlSlXKKFDwfgqNYmduA6">
+    <label for="id_emailto">Emailto:</label><input type="email" name="emailto" required="" id="id_emailto">
+    <label for="id_subjectt">Subjectt:</label><input type="text" name="subjectt" required="" id="id_subjectt">
+    <label for="id_message">Message:</label><textarea name="message" cols="40" rows="10" required="" id="id_message"></textarea>
+    <div class="form-actions">
+        <button id="post" type="submit">Send</button>
+    </div>
+</form>
+
+</div>
+</form>
+</form>
+</div>
+</body>
+</html>
